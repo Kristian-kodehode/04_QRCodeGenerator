@@ -10,7 +10,20 @@ const inputUrl = document.getElementById("url-input");
 const buttonGenerate = document.getElementById("generate-button");
 const buttonShare = document.getElementById("share-button");
 const resetButton = document.getElementById("reset-button");
+// const themeModeButton = document.getElementById("thememode");
+const themeIcon = document.getElementById("theme-icon");
+
 ////////////////////////
+
+// function themeMode() {
+//   const element = document.body;
+//   element.classList.toggle("thememode");
+// }
+function themeMode() {
+  const element = document.body;
+  element.classList.toggle("thememode");
+  console.log("clicked");
+}
 
 ////////////////////////
 //GENERATE QR CODE
@@ -117,4 +130,7 @@ buttonGenerate.addEventListener("click", async (event) => {
 });
 buttonShare.addEventListener("click", copyQRCode);
 resetButton.addEventListener("click", resetProgram);
+// themeIcon.addEventListener("click", themeMode);
+
+themeIcon.addEventListener("click", themeMode);
 ////////////////////////
