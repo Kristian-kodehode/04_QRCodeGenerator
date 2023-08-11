@@ -5,9 +5,6 @@
 * QR CODE GENERATOR APP *
 =========================
 */
-
-////////////////////////
-//HTML ELEMENTS
 const containerQr = document.getElementById("container-qr");
 const inputUrl = document.getElementById("url-input");
 const buttonGenerate = document.getElementById("generate-button");
@@ -15,32 +12,23 @@ const buttonShare = document.getElementById("share-button");
 const resetButton = document.getElementById("reset-button");
 ////////////////////////
 
-/*
-ISSUE!!!!
-VIRKER IKKE PÅ SAFARI Å COPY QR CODE BUTTON!
-CHATGPT hadde et svar.
-*/
-
 ////////////////////////
 //GENERATE QR CODE
 async function generateQRCode() {
   const url = inputUrl.value;
-
   //Checks if URL is provided and valid
   if (url.trim() === "" || !isValidURL(url)) {
     showError(errorMessages[0], 3000);
     return;
   }
 
-  //Make API request to generate the QR code
+  //API Request
   const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(
     url
   )}`;
-
   try {
-    //Fetch the QR Code image data
     const response = await fetch(apiUrl);
-    //First checks if response of fetching apiUrl is (not) successfull (Status code 200)
+    //Response fetching apiUrl ok / not ok. ok = (Status code 200)
     if (!response.ok) {
       throw new Error("Failed to generate QR Code");
     }
@@ -64,20 +52,19 @@ async function generateQRCode() {
     console.log("Failed to generate QR Code: ", error);
     alert("Failed to generate QR Code. Please try again.");
   }
+  setTimeout(() => {
+    resetButton.style.opacity = "1";
+  }, 2000);
 }
-////////////////////////
 
-////////////////////////
-//Function to validate URL from input value
+//Validate URL
 function isValidURL(url) {
   const urlRegex =
     /^(https?:\/\/)?(www\.)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?$/;
   return urlRegex.test(url);
 }
-////////////////////////
 
-////////////////////////
-//Function to copy QR Code to the clipboard
+//Copy QR Code
 function copyQRCode() {
   //Check if QR Code is generated
   if (!containerQr.querySelector("img")) {
@@ -85,10 +72,7 @@ function copyQRCode() {
     showError(errorMessages[1], 3000);
     return;
   }
-
-  // Get the QR code image source
   const qrCodeSource = containerQr.querySelector("img").src;
-
   //Use the Clipboard API to copy the QR code image source to the clipboard
   navigator.clipboard
     .writeText(qrCodeSource)
@@ -101,38 +85,24 @@ function copyQRCode() {
       console.error("Failed to copy QR Code to clipboard:", error);
     });
 }
-////////////////////////
 
-/*
-Kanskje du kan lage en array med et par 
-messages, og bruke arrayet som parameter
-i showError function nedenfor)
-*/
-
+// Error in QR window
 const errorMessages = ["Please enter valid URL", "An error occurred"];
-////////////////////////
-//Error Messages (Functions)
 function showError(message, duration) {
   var popup = document.getElementById("popup");
   popup.innerText = message;
   popup.style.display = "block";
-
   setTimeout(function () {
     popup.style.display = "none";
   }, duration);
 }
-////////////////////////
 
 // Reset the program
 function resetProgram() {
-  // Clear QR code container
   containerQr.innerHTML = "";
-
-  // Clear input field
   inputUrl.value = "";
-
-  // Hide "Share Code" button
   buttonShare.style.opacity = "0";
+  resetButton.style.display = "none";
 }
 
 ////////////////////////

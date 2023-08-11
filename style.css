@@ -77,6 +77,10 @@ button {
   font-weight: 500;
   cursor: pointer;
 }
+button:hover {
+  outline: 1px solid white;
+  outline-offset: 4px;
+}
 
 .generate-button {
   background-color: #d4f266;
@@ -87,6 +91,12 @@ button {
   background-color: #404040;
   color: #d4f266;
   border: 1px solid #d4f266;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.reset-button {
+  padding: 0.5em;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
