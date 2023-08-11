@@ -5,6 +5,7 @@
 * QR CODE GENERATOR APP *
 =========================
 */
+const wrapper = document.getElementById("wrapper");
 const containerQr = document.getElementById("container-qr");
 const inputUrl = document.getElementById("url-input");
 const buttonGenerate = document.getElementById("generate-button");
@@ -12,6 +13,15 @@ const buttonShare = document.getElementById("share-button");
 const resetButton = document.getElementById("reset-button");
 const themeModeButton = document.getElementById("thememode");
 const themeIcon = document.getElementById("theme-icon");
+
+////////////////////////
+// script.js
+
+function slideIn() {
+  wrapper.style.opacity = "1";
+  wrapper.style.transform = "translateY(0px)"; // Slide the div in from the top
+}
+document.addEventListener("DOMContentLoaded", slideIn);
 
 ////////////////////////
 
@@ -118,6 +128,7 @@ function resetProgram() {
 
 ////////////////////////
 //EVENT HANDLERS
+
 buttonGenerate.addEventListener("click", async (event) => {
   await generateQRCode();
   if (containerQr.querySelector("img")) {

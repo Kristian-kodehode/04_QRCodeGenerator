@@ -19,33 +19,41 @@
     <title>Project 4 api</title>
   </head>
   <body>
-    <div class="container-app">
-      <button id="thememode" class="themebutton">
-        <i id="theme-icon" class="fa-solid fa-lightbulb thememode2"></i>
-      </button>
-
-      <div id="container-qr" class="container-qr">
-        <div id="popup" class="popup"></div>
-      </div>
-      <input type="url" id="url-input" placeholder="Enter URL" />
-
-      <button
-        title="Click to generate QR"
-        class="generate-button"
-        id="generate-button"
-      >
-        Generate Code <i class="fa-solid fa-qrcode"></i>
-      </button>
-      <div class="buttoncontainer">
-        <button
-          title="Click to copy QR to Clipboard"
-          id="share-button"
-          class="share-button"
-        >
-          Share
-          <i class="fa-solid fa-up-right-from-square"></i>
+    <nav>
+      <i class="fa-brands fa-html5"></i>
+      <i class="fa-brands fa-css3-alt"></i>
+      <i class="fa-brands fa-js"></i>
+    </nav>
+    <div id="wrapper" class="wrapper">
+      <div class="container-app">
+        <button id="thememode" class="themebutton">
+          <i
+            id="theme-icon"
+            class="fa-solid fa-circle-half-stroke thememode2"
+          ></i>
         </button>
-        <button id="reset-button" class="reset-button">Reset</button>
+        <div id="container-qr" class="container-qr">
+          <div id="popup" class="popup"></div>
+        </div>
+        <input type="url" id="url-input" placeholder="Enter URL" />
+        <button
+          title="Click to generate QR"
+          class="generate-button"
+          id="generate-button"
+        >
+          Generate Code <i class="fa-solid fa-qrcode"></i>
+        </button>
+        <div class="button-share-reset-container">
+          <button
+            title="Click to copy QR to Clipboard"
+            id="share-button"
+            class="share-button"
+          >
+            Share
+            <i class="fa-solid fa-up-right-from-square"></i>
+          </button>
+          <button id="reset-button" class="reset-button">Reset</button>
+        </div>
       </div>
     </div>
   </body>
