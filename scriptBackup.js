@@ -29,8 +29,6 @@ function themeMode() {
   const element = document.body;
   element.classList.toggle("thememode");
   console.log("clickedbody");
-  themeModeButton.classList.toggle("thememode");
-  console.log("clicked3");
 }
 
 ////////////////////////

@@ -95,7 +95,8 @@ input:focus {
 }
 
 button {
-  max-width: 250px;
+  /* max-width: 250px; */
+  width: 100%;
   padding: 1em;
   border-radius: 4px;
   border: none;
