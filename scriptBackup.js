@@ -129,5 +129,4 @@ buttonGenerate.addEventListener("click", async (event) => {
 buttonShare.addEventListener("click", copyQRCode);
 resetButton.addEventListener("click", resetProgram);
 themeModeButton.addEventListener("click", themeMode);
-// themeIcon.addEventListener("click", themeMode);
 ////////////////////////
