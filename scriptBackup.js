@@ -12,6 +12,7 @@ const containerQr = document.getElementById("container-qr");
 const inputUrl = document.getElementById("url-input");
 const buttonGenerate = document.getElementById("generate-button");
 const buttonShare = document.getElementById("share-button");
+const resetButton = document.getElementById("reset-button");
 ////////////////////////
 
 /*
@@ -122,6 +123,18 @@ function showError(message, duration) {
 }
 ////////////////////////
 
+// Reset the program
+function resetProgram() {
+  // Clear QR code container
+  containerQr.innerHTML = "";
+
+  // Clear input field
+  inputUrl.value = "";
+
+  // Hide "Share Code" button
+  buttonShare.style.opacity = "0";
+}
+
 ////////////////////////
 //EVENT HANDLERS
 buttonGenerate.addEventListener("click", async (event) => {
@@ -133,4 +146,5 @@ buttonGenerate.addEventListener("click", async (event) => {
   }
 });
 buttonShare.addEventListener("click", copyQRCode);
+resetButton.addEventListener("click", resetProgram);
 ////////////////////////
