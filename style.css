@@ -7,20 +7,19 @@
 body {
   min-width: 300px;
   font-family: "Poppins", sans-serif;
-  /* background-color: #0d0d0d; */
+  color: #404040;
+  background-color: #202020;
 }
 
 .thememode {
-  background-color: white;
-  color: #404040;
-}
-/* .fa-regular.thememode {
-  display: none;
+  background-color: #fefefe;
+  color: red;
 }
 
-.fa-solid.thememode {
-  display: inline-block;
-} */
+.thememode2 {
+  color: coral;
+  font-size: 20px;
+}
 
 .popup {
   padding: 1em;
@@ -113,9 +112,18 @@ button:hover {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
+.themebutton {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #0d0d0d00;
+  border: 1px solid #202020;
+}
 
 .fa-solid {
   margin-left: 0.5em;
+  color: #404040;
 }
 
 /* Color Theme Swatches in Hex */
