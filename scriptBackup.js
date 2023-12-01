@@ -71,9 +71,6 @@ async function generateQRCode() {
     console.log("Failed to generate QR Code: ", error);
     alert("Failed to generate QR Code. Please try again.");
   }
-  setTimeout(() => {
-    resetButton.style.opacity = "1";
-  }, 2000);
 }
 
 //Validate URL
@@ -121,7 +118,7 @@ function resetProgram() {
   containerQr.innerHTML = "";
   inputUrl.value = "";
   buttonShare.style.opacity = "0";
-  resetButton.style.display = "none";
+  resetButton.style.opacity = "0";
 }
 
 ////////////////////////
@@ -133,6 +130,9 @@ buttonGenerate.addEventListener("click", async (event) => {
     setTimeout(() => {
       buttonShare.style.opacity = "1";
     }, 1000);
+    setTimeout(() => {
+      resetButton.style.opacity = "1";
+    }, 2000);
   }
 });
 buttonShare.addEventListener("click", copyQRCode);
